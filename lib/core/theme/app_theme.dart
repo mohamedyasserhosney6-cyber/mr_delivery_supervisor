@@ -9,17 +9,17 @@ class AppTheme {
   
   // Light Theme Colors - Clean & Elegant
   static const Color backgroundLight = Color(0xFFf8fafc); // Slate 50
-  static const Color backgroundSecondaryLight = Color(0xFFffffff);
-  static const Color cardColorLight = Color(0xFFffffff);
+  static const Color backgroundSecondaryLight = Color(0xFFFFFFFF);
+  static const Color cardColorLight = Color(0xFFFFFFFF);
   
   // Common Colors
   static const Color primaryColor = Color(0xFF3b82f6); // Blue Accent
-  static const Color successGreen = Color(0xFF10b981); // More vibrant green
+  static const Color successGreen = Color(0xFF10b981);
   static const Color dangerRed = Color(0xFFef4444);
   static const Color warningOrange = Color(0xFFf59e0b);
   
   // Dark Theme Text Colors
-  static const Color textPrimaryDark = Color(0xFFf3f4f6); // Brighter white
+  static const Color textPrimaryDark = Color(0xFFf3f4f6);
   static const Color textSecondaryDark = Color(0xFF9ca3af);
   
   // Light Theme Text Colors
@@ -74,7 +74,9 @@ class AppTheme {
           color: textPrimaryDark,
         ),
       ),
-      cardTheme: CardThemeData(
+
+      // ✔ FIX: استبدال CardThemeData بـ CardTheme
+      cardTheme: CardTheme(
         color: cardColorDark,
         elevation: 4,
         shadowColor: Colors.black26,
@@ -82,6 +84,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
@@ -111,13 +114,13 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey.shade800),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: primaryColor, width: 2),
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderSide: BorderSide(color: primaryColor, width: 2),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: dangerRed),
+        errorBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderSide: BorderSide(color: dangerRed),
         ),
         labelStyle: GoogleFonts.cairo(color: textSecondaryDark),
         hintStyle: GoogleFonts.cairo(color: textSecondaryDark),
@@ -187,7 +190,9 @@ class AppTheme {
           color: textPrimaryLight,
         ),
       ),
-      cardTheme: CardThemeData(
+
+      // ✔ FIX: CardTheme بدلاً من CardThemeData
+      cardTheme: CardTheme(
         color: cardColorLight,
         elevation: 2,
         shadowColor: Colors.black12,
@@ -195,6 +200,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
@@ -224,13 +230,13 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey.shade300),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: primaryColor, width: 2),
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderSide: BorderSide(color: primaryColor, width: 2),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: dangerRed),
+        errorBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderSide: BorderSide(color: dangerRed),
         ),
         labelStyle: GoogleFonts.cairo(color: textSecondaryLight),
         hintStyle: GoogleFonts.cairo(color: textSecondaryLight),
@@ -251,4 +257,3 @@ class AppTheme {
     );
   }
 }
-
