@@ -27,8 +27,8 @@ dependencies:
   # Fonts
   google_fonts: ^6.1.0
   
-  # Internationalization
-  intl: ^0.19.0
+  # Internationalization (Fixed)
+  intl: 0.19.0
   
   # Icons
   flutter_svg: ^2.0.9
@@ -52,8 +52,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  
-  # Assets (if needed later)
-  # assets:
-  #   - assets/images/
-  #   - assets/icons/
