@@ -11,41 +11,37 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  
+
   # State Management
   flutter_riverpod: ^2.5.1
-  
+
   # Navigation
   go_router: ^14.0.0
-  
+
   # Networking
   dio: ^5.4.0
-  
+
   # Storage
   shared_preferences: ^2.2.2
-  
+
   # Fonts
   google_fonts: ^6.1.0
-  
 
-  # Internationalization
+  # Internationalization (required by Flutter SDK)
+  intl: ^0.20.2
 
-  # Internationalization (MATCH SDK REQUIREMENT)
- 8834751a45bcefb165902a2f77890e82a104c4f8
-  intl: 0.20.2
-  
   # Icons
   flutter_svg: ^2.0.9
-  
+
   # Pull to refresh
   pull_to_refresh: ^2.0.0
-  
+
   # Charts
   fl_chart: ^0.68.0
-  
-  # Loading States
+
+  # Loading animation
   shimmer: ^3.0.0
-  
+
   # UI
   cupertino_icons: ^1.0.6
 
