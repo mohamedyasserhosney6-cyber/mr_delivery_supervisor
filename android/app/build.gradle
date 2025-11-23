@@ -25,9 +25,8 @@ if (flutterVersionName == null) {
 android {
     namespace "com.mrdelivery.supervisor"
 
-    // ممكن تخليها ثابتة أو تعتمد على flutter.* لو حابب
     compileSdkVersion 36
-    ndkVersion flutter.ndkVersion
+    ndkVersion "26.1.10909125"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -52,7 +51,6 @@ android {
 
     buildTypes {
         release {
-            // لحد ما تعمل توقيع Release، خليك على debug signing
             signingConfig signingConfigs.debug
         }
     }
