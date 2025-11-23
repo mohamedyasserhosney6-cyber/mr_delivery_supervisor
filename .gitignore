@@ -1,0 +1,52 @@
+# Flutter
+.dart_tool/
+.packages
+.pub-cache/
+build/
+ios/Flutter/Flutter.framework
+ios/Flutter/App.framework
+ios/Flutter/engine/
+*.ipa
+
+# Android
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# iOS Xcode
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/ephemeral/
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/project.xcworkspace/
+ios/Runner.xcodeproj/xcshareddata/
+ios/Runner.xcodeproj/xcuserdata/
+ios/Runner.xcodeproj/project.pbxproj
+
+# macOS
+macos/Flutter/ephemeral/
+macos/Pods/
+macos/Runner.xcworkspace/
+macos/Runner.xcodeproj/
+
+# Windows
+windows/flutter/ephemeral/
+windows/flutter/ephemeral_trash/
+
+# Linux
+linux/flutter/ephemeral/
+linux/Flutter/ephemeral/
+
+# Web
+web/flutter.js
+web/canvaskit/
+
+# APKs
+*.apk
+
+# System / IDE
+.vscode/
+.idea/
+*.iml
+*.log

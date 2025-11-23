@@ -1,0 +1,29 @@
+خطوات إصلاح مشكلة Gradle Cache يدوياً:
+
+1. افتح PowerShell كمسؤول (Run as Administrator)
+
+2. نفذ هذه الأوامر بالترتيب:
+
+   # إيقاف جميع عمليات Java/Gradle
+   Get-Process | Where-Object { $_.ProcessName -like "*java*" -or $_.ProcessName -like "*gradle*" } | Stop-Process -Force -ErrorAction SilentlyContinue
+
+   # انتظر 5 ثوانٍ
+   Start-Sleep -Seconds 5
+
+   # حذف كاش Gradle 8.7
+   Remove-Item -Recurse -Force "$env:USERPROFILE\.gradle\caches\8.7" -ErrorAction SilentlyContinue
+
+   # حذف Kotlin daemon
+   Remove-Item -Recurse -Force "$env:USERPROFILE\.kotlin" -ErrorAction SilentlyContinue
+
+   # تنظيف المشروع
+   cd D:\Tb\TB\mr_delivery_supervisor
+   flutter clean
+   Remove-Item -Recurse -Force .\android\.gradle -ErrorAction SilentlyContinue
+
+   # إعادة البناء
+   flutter pub get
+   flutter build apk --debug
+
+3. إذا استمرت المشكلة، جرّب إعادة تشغيل الكمبيوتر ثم أعد المحاولة.
+

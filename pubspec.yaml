@@ -1,0 +1,60 @@
+name: mr_delivery_supervisor
+description: MR DELIVERY Supervisor Mobile App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  
+  # State Management
+  flutter_riverpod: ^2.5.1
+  
+  # Navigation
+  go_router: ^14.0.0
+  
+  # Networking
+  dio: ^5.4.0
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  
+  # Fonts
+  google_fonts: ^6.1.0
+  
+  # Internationalization
+  intl: ^0.20.2
+  
+  # Icons
+  flutter_svg: ^2.0.9
+  
+  # Pull to refresh
+  pull_to_refresh: ^2.0.0
+  
+  # Charts
+  fl_chart: ^0.68.0
+  
+  # Loading States
+  shimmer: ^3.0.0
+  
+  # UI
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  
+  # Assets (if needed later)
+  # assets:
+  #   - assets/images/
+  #   - assets/icons/
+
