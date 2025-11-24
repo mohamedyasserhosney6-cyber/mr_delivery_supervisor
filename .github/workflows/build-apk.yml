@@ -1,12 +1,13 @@
 name: Build Flutter APK
 
 on:
-  # تقدر تضيف push لو حابب، لكن حالياً نخليه manual
-  workflow_dispatch:
+  workflow_dispatch:      # تشغيل يدوي من تبويب Actions
+  push:
+    branches:
+      - main              # يشتغل أوتوماتيك على أي push للـ main
 
 jobs:
   build:
-    name: Build APK
     runs-on: ubuntu-latest
 
     steps:
@@ -16,31 +17,28 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: "17"
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
-          
-          flutter-version: '3.22.0'
+          channel: "stable"
+          flutter-version: "3.22.0"
           cache: true
 
       - name: Flutter pub get
         run: flutter pub get
 
-    
-
+      # المهم هنا: نشتغل جوّه فولدر android
       - name: Build release APK with Gradle
         working-directory: android
-        run: ./gradlew assembleRelease
-
-      - name: List generated APKs
-        run: ls -R android/app/build/outputs
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4   # v4 مش v3 عشان الديبركيشن
         with:
-          name: mr_delivery_supervisor-apk
-          path: android/app/build/outputs/apk/release/*.apk
+          name: mr_delivery_supervisor-release-apk
+          path: android/app/build/outputs/apk/release/app-release.apk
