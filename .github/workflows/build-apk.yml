@@ -30,9 +30,7 @@ jobs:
       - name: Flutter pub get
         run: flutter pub get
 
-      - name: Make gradlew executable
-        working-directory: android
-        run: chmod +x gradlew
+    
 
       - name: Build release APK with Gradle
         working-directory: android
