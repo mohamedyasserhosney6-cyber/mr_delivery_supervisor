@@ -2,44 +2,38 @@ name: Build Flutter APK
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Java
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-    - name: Install Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        channel: stable
-        cache: true
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
 
-    - name: Disable file watcher limit (Fix already watching path bug)
-      run: |
-        sudo sysctl fs.inotify.max_user_watches=524288
-        sudo sysctl -p || true
+      - name: Get dependencies
+        run: flutter pub get
 
-    - name: Get dependencies
-      run: flutter pub get
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
 
-    - name: Build APK
-      run: |
-        flutter build apk --release --no-tree-shake-icons
-        ls -R build/app/outputs/flutter-apk/
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v3
-      with:
-        name: app-release
-        path: build/app/outputs/flutter-apk/app-release.apk
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release
+          path: build/app/outputs/flutter-apk/app-release.apk
