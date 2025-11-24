@@ -9,8 +9,8 @@ class AppTheme {
 
   // Light Theme Colors - Clean & Elegant
   static const Color backgroundLight = Color(0xFFf8fafc); // Slate 50
-  static const Color backgroundSecondaryLight = Color(0xFFffffff);
-  static const Color cardColorLight = Color(0xFFffffff);
+  static const Color backgroundSecondaryLight = Color(0xFFFFFFFF);
+  static const Color cardColorLight = Color(0xFFFFFFFF);
 
   // Common Colors
   static const Color primaryColor = Color(0xFF3b82f6); // Blue Accent
@@ -83,14 +83,7 @@ class AppTheme {
           color: textPrimaryDark,
         ),
       ),
-      cardTheme: CardThemeData(
-        color: cardColorDark,
-        elevation: 4,
-        shadowColor: Colors.black26,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-      ),
+      // **مفيش cardTheme هنا علشان نزود توافق الإصدارات**
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
@@ -206,14 +199,7 @@ class AppTheme {
           color: textPrimaryLight,
         ),
       ),
-      cardTheme: CardThemeData(
-        color: cardColorLight,
-        elevation: 2,
-        shadowColor: Colors.black12,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-      ),
+      // **برضه شلنا cardTheme هنا**
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
