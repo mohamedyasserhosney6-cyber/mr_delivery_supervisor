@@ -4,7 +4,7 @@ on:
   workflow_dispatch:      # تشغيل يدوي من تبويب Actions
   push:
     branches:
-      - main              # يشتغل أوتوماتيك على أي push للـ main
+      - main              # يشتغل تلقائي عند أي push للـ main
 
 jobs:
   build:
@@ -30,15 +30,17 @@ jobs:
       - name: Flutter pub get
         run: flutter pub get
 
-      # المهم هنا: نشتغل جوّه فولدر android
+      # مهم جداً: تشغيل Gradle من داخل android/
       - name: Build release APK with Gradle
         working-directory: android
         run: |
           chmod +x gradlew
+          ./gradlew clean
           ./gradlew assembleRelease
 
+      # رفع الـ APK الناتج
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v4   # v4 مش v3 عشان الديبركيشن
+        uses: actions/upload-artifact@v4
         with:
           name: mr_delivery_supervisor-release-apk
           path: android/app/build/outputs/apk/release/app-release.apk
