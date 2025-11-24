@@ -27,12 +27,8 @@ dependencies:
   # Fonts
   google_fonts: ^6.1.0
   
-
   # Internationalization
-
-  # Internationalization (MATCH SDK REQUIREMENT)
- 8834751a45bcefb165902a2f77890e82a104c4f8
-  intl: 0.20.2
+  intl: ^0.20.2
   
   # Icons
   flutter_svg: ^2.0.9
