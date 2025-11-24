@@ -1,10 +1,10 @@
 name: Build Flutter APK
 
 on:
-  workflow_dispatch:        # تشغيل يدوي من تبويب Actions
+  workflow_dispatch:          # تشغيل يدوي من تبويب Actions
   push:
     branches:
-      - main                # يشتغل أوتوماتيك على أي push للـ main
+      - main                  # يشتغل أوتوماتيك على أي push للـ main
 
 jobs:
   build:
@@ -23,19 +23,22 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          channel: "stable"
           flutter-version: "3.22.0"
           cache: true
 
       - name: Flutter pub get
         run: flutter pub get
 
-      # هنا بنستخدم Flutter مباشرة بدل gradlew
-      - name: Build release APK with Flutter
-        run: flutter build apk --release --no-tree-shake-icons --no-pub
+      # نبني الـ APK عن طريق Gradle من داخل فولدر android
+      - name: Build release APK with Gradle
+        working-directory: android
+        run: |
+          chmod +x ./gradlew
+          ./gradlew assembleRelease
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: mr_delivery_supervisor-release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
