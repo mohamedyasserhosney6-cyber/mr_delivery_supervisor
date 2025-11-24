@@ -2,44 +2,44 @@ name: Build Flutter APK
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'zulu'
-          java-version: '17'
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: '3.22.0'
+    - name: Install Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+        cache: true
 
-      - name: Flutter Pub Get
-        run: flutter pub get
+    - name: Disable file watcher limit (Fix already watching path bug)
+      run: |
+        sudo sysctl fs.inotify.max_user_watches=524288
+        sudo sysctl -p || true
 
-      - name: Clean build cache
-        run: flutter clean
+    - name: Get dependencies
+      run: flutter pub get
 
-      - name: Disable file watching (fix Already watching path)
-        run: echo "WATCHER_DISABLE=1" >> $GITHUB_ENV
+    - name: Build APK
+      run: |
+        flutter build apk --release --no-tree-shake-icons
+        ls -R build/app/outputs/flutter-apk/
 
-      - name: Build APK
-        run: flutter build apk --release --no-tree-shake-icons
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: mr_delivery_supervisor
-          path: build/app/outputs/flutter-apk/app-release.apk
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-release
+        path: build/app/outputs/flutter-apk/app-release.apk
