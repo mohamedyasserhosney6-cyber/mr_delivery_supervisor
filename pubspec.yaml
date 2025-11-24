@@ -27,8 +27,8 @@ dependencies:
   # Fonts
   google_fonts: ^6.1.0
 
-  # Internationalization (required by Flutter SDK)
-  intl: ^0.20.2
+  # Internationalization
+  intl: any
 
   # Icons
   flutter_svg: ^2.0.9
@@ -39,7 +39,7 @@ dependencies:
   # Charts
   fl_chart: ^0.68.0
 
-  # Loading animation
+  # Loading States
   shimmer: ^3.0.0
 
   # UI
@@ -52,3 +52,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  # assets:
+  #   - assets/images/
+  #   - assets/icons/
