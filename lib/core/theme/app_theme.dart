@@ -6,22 +6,22 @@ class AppTheme {
   static const Color backgroundDark = Color(0xFF0f172a); // Rich Slate 900
   static const Color backgroundSecondaryDark = Color(0xFF1e293b); // Slate 800
   static const Color cardColorDark = Color(0xFF1e293b); // Slate 800
-  
+
   // Light Theme Colors - Clean & Elegant
   static const Color backgroundLight = Color(0xFFf8fafc); // Slate 50
-  static const Color backgroundSecondaryLight = Color(0xFFFFFFFF);
-  static const Color cardColorLight = Color(0xFFFFFFFF);
-  
+  static const Color backgroundSecondaryLight = Color(0xFFffffff);
+  static const Color cardColorLight = Color(0xFFffffff);
+
   // Common Colors
   static const Color primaryColor = Color(0xFF3b82f6); // Blue Accent
-  static const Color successGreen = Color(0xFF10b981);
+  static const Color successGreen = Color(0xFF10b981); // More vibrant green
   static const Color dangerRed = Color(0xFFef4444);
   static const Color warningOrange = Color(0xFFf59e0b);
-  
+
   // Dark Theme Text Colors
-  static const Color textPrimaryDark = Color(0xFFf3f4f6);
+  static const Color textPrimaryDark = Color(0xFFf3f4f6); // Brighter white
   static const Color textSecondaryDark = Color(0xFF9ca3af);
-  
+
   // Light Theme Text Colors
   static const Color textPrimaryLight = Color(0xFF111827);
   static const Color textSecondaryLight = Color(0xFF6b7280);
@@ -46,19 +46,28 @@ class AppTheme {
       ),
       textTheme: GoogleFonts.cairoTextTheme(
         const TextTheme(
-          displayLarge: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
-          displayMedium: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
-          displaySmall: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
-          headlineLarge: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w700),
-          headlineMedium: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w600),
-          headlineSmall: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w600),
-          titleLarge: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w600),
+          displayLarge:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
+          displayMedium:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
+          displaySmall:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
+          headlineLarge:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w700),
+          headlineMedium:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w600),
+          headlineSmall:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w600),
+          titleLarge:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
+          titleMedium:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w600),
           titleSmall: TextStyle(color: textPrimaryDark),
           bodyLarge: TextStyle(color: textPrimaryDark),
           bodyMedium: TextStyle(color: textPrimaryDark),
           bodySmall: TextStyle(color: textSecondaryDark),
-          labelLarge: TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
+          labelLarge:
+              TextStyle(color: textPrimaryDark, fontWeight: FontWeight.bold),
           labelMedium: TextStyle(color: textSecondaryDark),
           labelSmall: TextStyle(color: textSecondaryDark),
         ),
@@ -74,9 +83,7 @@ class AppTheme {
           color: textPrimaryDark,
         ),
       ),
-
-      // ✔ FIX: استبدال CardThemeData بـ CardTheme
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: cardColorDark,
         elevation: 4,
         shadowColor: Colors.black26,
@@ -84,7 +91,6 @@ class AppTheme {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
@@ -105,7 +111,8 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: backgroundSecondaryDark,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey.shade800),
@@ -114,13 +121,13 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey.shade800),
         ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: primaryColor, width: 2),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: primaryColor, width: 2),
         ),
-        errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: dangerRed),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: dangerRed),
         ),
         labelStyle: GoogleFonts.cairo(color: textSecondaryDark),
         hintStyle: GoogleFonts.cairo(color: textSecondaryDark),
@@ -161,19 +168,28 @@ class AppTheme {
       ),
       textTheme: GoogleFonts.cairoTextTheme(
         const TextTheme(
-          displayLarge: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
-          displayMedium: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
-          displaySmall: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
-          headlineLarge: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.w700),
-          headlineMedium: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.w600),
-          headlineSmall: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.w600),
-          titleLarge: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.w600),
+          displayLarge:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
+          displayMedium:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
+          displaySmall:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
+          headlineLarge:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.w700),
+          headlineMedium:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.w600),
+          headlineSmall:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.w600),
+          titleLarge:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
+          titleMedium:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.w600),
           titleSmall: TextStyle(color: textPrimaryLight),
           bodyLarge: TextStyle(color: textPrimaryLight),
           bodyMedium: TextStyle(color: textPrimaryLight),
           bodySmall: TextStyle(color: textSecondaryLight),
-          labelLarge: TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
+          labelLarge:
+              TextStyle(color: textPrimaryLight, fontWeight: FontWeight.bold),
           labelMedium: TextStyle(color: textSecondaryLight),
           labelSmall: TextStyle(color: textSecondaryLight),
         ),
@@ -190,9 +206,7 @@ class AppTheme {
           color: textPrimaryLight,
         ),
       ),
-
-      // ✔ FIX: CardTheme بدلاً من CardThemeData
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: cardColorLight,
         elevation: 2,
         shadowColor: Colors.black12,
@@ -200,7 +214,6 @@ class AppTheme {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
@@ -221,7 +234,8 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: Colors.grey.shade50,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey.shade300),
@@ -230,13 +244,13 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey.shade300),
         ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: primaryColor, width: 2),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: primaryColor, width: 2),
         ),
-        errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: dangerRed),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: dangerRed),
         ),
         labelStyle: GoogleFonts.cairo(color: textSecondaryLight),
         hintStyle: GoogleFonts.cairo(color: textSecondaryLight),
